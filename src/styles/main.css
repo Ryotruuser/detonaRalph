@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
+    background-image: url("../images/wall.png");
     .menu{
         display: flex;
         justify-content: space-evenly;
@@ -9,22 +10,29 @@
         height: 90px;
         width: 100%;
         background-color: #000;
-        color: #fff;}
+        color: #fff;
+        border-bottom:2px solid #ffd700;
+    }
+        .menu-lives{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     .panel{
         margin-top: 1rem;
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 1px solid red;
     }
     .square{
         height: 150px;
         width: 150px;
         border: 1px solid #000;
-        background-color: #cab96a;
+        background-color: #1aeaa5;
     }
     .enemy{
-        background-color: red;
+        background-image: url(../images/ralph.png);
+        background-size: cover;
     }
 }
 
