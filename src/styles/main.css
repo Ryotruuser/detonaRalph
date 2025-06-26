@@ -1,6 +1,7 @@
 body{
     background-image: url("../images/wall.png");
     overflow-y: scroll;
+    height: 100vh;
 }
 .container{
     display: flex;
