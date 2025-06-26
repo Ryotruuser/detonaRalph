@@ -1,9 +1,10 @@
 .container{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
     background-image: url("../images/wall.png");
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: scroll;
     .menu{
         display: flex;
         justify-content: space-evenly;
@@ -79,14 +80,18 @@
         border: 1px solid #000;
         background-color: #1aeaa5;
         @media only screen and (max-width: 496px){
-            height: 9.5rem;
-            width: 9.5rem;
+            height: 9rem;
+            width: 9rem;
             @media only screen and (max-width: 462px){
-                height: 8.5rem;
-                width: 8.5rem;
+                height: 8rem;
+                width: 8rem;
                 @media only screen and (max-width: 410px){
-                    height: 8rem;
-                    width: 8rem;
+                    height: 7.5rem;
+                    width: 7.5rem;
+                    @media only screen and (max-width: 370px){
+                    height: 6rem;
+                    width: 6rem;
+                    }
                 }
             }
         }
@@ -105,6 +110,7 @@
         align-items: center;
         gap: 1rem;
         justify-content: center;
+        padding-bottom: 2rem;
         .result-text{
             color: rgb(55, 243, 55);
             text-align: center;
