@@ -13,6 +13,12 @@
         background-color: #000;
         color: #fff;
         border-bottom:2px solid #ffd700;
+        .menu-time{
+            @media only screen and (max-width: 680px){
+                font-size: .7rem;
+                margin-left: 1rem;
+            }
+        }
         .menu-time-inner{
             display: flex;
             margin-top: 10px;
@@ -38,11 +44,23 @@
                     font-size: .9rem;
                 }
             }
+            @media only screen and (max-width: 680px){
+                font-size: .7rem;
+            }
         }
         .menu-lives{
             display: flex;
             justify-content: center;
             align-items: center;
+            @media only screen and (max-width: 680px){
+                font-size: .7rem;
+                margin-right: 1rem;
+            }
+            .menu-lives-img{
+                @media only screen and (max-width: 680px){
+                    height: 50px;
+                }
+            }
         }
         .menu-time h2:nth-child(2),.menu-score h2:nth-child(2){
             margin-top: 10px;
@@ -60,6 +78,19 @@
         width: 10rem;
         border: 1px solid #000;
         background-color: #1aeaa5;
+        @media only screen and (max-width: 496px){
+            height: 9.5rem;
+            width: 9.5rem;
+            @media only screen and (max-width: 462px){
+                height: 8.5rem;
+                width: 8.5rem;
+                @media only screen and (max-width: 410px){
+                    height: 8rem;
+                    width: 8rem;
+                }
+            }
+        }
+        
     }
     .enemy{
         background-image: url(../images/ralph.gif);
