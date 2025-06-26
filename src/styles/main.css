@@ -13,15 +13,29 @@
         background-color: #000;
         color: #fff;
         border-bottom:2px solid #ffd700;
-    }
+        .menu-score{
+            .menu-score-inner{
+                display: flex;
+                margin-top: 10px;
+                flex-direction: row;
+                gap: .5rem;
+                .extra-points{
+                    opacity: 0;
+                    transition: .7s ease-in-out;
+                    color: #ffd700;
+                    font-size: .9rem;
+                }
+            }
+        }
         .menu-lives{
             display: flex;
             justify-content: center;
             align-items: center;
         }
         .menu-time h2:nth-child(2),.menu-score h2:nth-child(2){
-            margin-top: 10px
+            margin-top: 10px;
         }
+    }
     .panel{
         margin-top: 1rem;
         display: flex;
@@ -39,6 +53,7 @@
         background-image: url(../images/ralph.gif);
         background-size: cover;
     }
+    
     .bottom-menu{
         opacity: 0;
         transition: 1s;

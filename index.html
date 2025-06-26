@@ -21,7 +21,10 @@
             </div>
             <div class="menu-score">
                 <h2 style="color: red;">Your Score</h2>
-                <h2 id="score">0</h2>
+                <div class="menu-score-inner">
+                    <h2 id="score">0</h2> <span class="extra-points"></span>
+                </div>
+                
             </div>
             <div class="menu-lives">
                 <img src="./src/images/player.png" alt="icone do jogador" height="60px">
@@ -60,6 +63,8 @@
 
 
     </div>
+
+    <audio src="./src/audios/bgsound.m4a" muted loop id="bg-audio"></audio>
 
     <script defer src="src/scripts/engine.js"></script>
 </body>

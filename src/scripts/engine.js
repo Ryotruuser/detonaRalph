@@ -7,22 +7,47 @@ const state = {
         lives: document.querySelector("#lives"),
         resultText: document.querySelector(".result-text"),
         gameOverMenu: document.querySelector(".bottom-menu"),
+        bonusPoint: document.querySelector(".extra-points"),
     },
     values:{
         gameVelocity: 1000,
         hitPosition: 0,
         result: 0,
-        initialLevelTime: 60,
-        currentTime: 60,
+        initialLevelTime: 30,
+        nextLevelPace: 200,
+        currentTime: 30,
         totLives: 3,
         lives: 3,
+        bonusPoint: 10,
     },
     actions:{
         timerId: null,
-        countDownTimerId: setInterval(countDown, 10),
+        countDownTimerId: setInterval(countDown, 1000),
     }
 };
 
+window.addEventListener("click", ()=>{
+    const audio = document.getElementById("bg-audio");
+    audio.muted = false;
+    audio.volume = 0.1;
+    audio.play();
+});
+
+function showHideExtraPoint(value){
+    state.view.bonusPoint.style.opacity = value;
+}
+
+function nextLevel(){
+    if(state.values.result === 5 && state.values.lives > 0){
+        state.values.result += state.values.bonusPoint;
+        state.view.bonusPoint.textContent = "+" + state.values.bonusPoint;
+        livesAdd(1);
+        state.view.score.textContent = state.values.result;
+        showHideExtraPoint(1);
+        playSound("levelPassed");
+        
+    }
+}
 
 function resetGame(){
     state.values.currentTime = state.values.initialLevelTime;
@@ -33,9 +58,14 @@ function resetGame(){
     state.view.score.textContent = state.values.result;
     state.view.lives.textContent = "x" + state.values.lives;
 
-    state.actions.countDownTimerId = setInterval(countDown, 10);
+    state.actions.countDownTimerId = setInterval(countDown, 1000);
 
     state.view.gameOverMenu.style.opacity = 0;
+}
+
+function livesAdd(livesQnt){
+    state.values.lives += livesQnt;
+    state.view.lives.textContent = "x" + state.values.lives;
 }
 
 function livesOver(){
@@ -46,6 +76,7 @@ function livesOver(){
 function countDown(){
     state.values.currentTime--;
     state.view.timeLeft.textContent = state.values.currentTime;
+    nextLevel();
 
     if(state.values.currentTime <= 0 && state.values.lives > 0){
         livesOver();
@@ -58,11 +89,6 @@ function countDown(){
         state.view.gameOverMenu.style.opacity = 1;
     }
 
-    // if(state.values.currentTime <= 0){
-    //     clearInterval(state.actions.countDownTimerId);
-    //     clearInterval(state.actions.timerId);
-    //     alert(`Game Over! O seu resultado foi ${state.values.result}`)
-    // }
 }
 
 function playSound(audioName){
@@ -91,7 +117,8 @@ function moveEnemy(){
 function addListenerHitBox(){
     state.view.squares.forEach((square)=>{
         square.addEventListener("mousedown", ()=>{
-            if(square.id === state.values.hitPosition){
+            showHideExtraPoint(0);
+            if(square.id === state.values.hitPosition && state.values.currentTime > 0){
                 state.values.result++
                 state.view.score.textContent = state.values.result;
                 state.values.hitPosition = null;
@@ -106,6 +133,4 @@ function initialize(){
     addListenerHitBox();
 }
 
-if(state.values.lives > 0){
-    initialize();
-}
+initialize();
