@@ -5,7 +5,8 @@ Este é um pequeno jogo inspirado no personagem **Detona Ralph**, desenvolvido c
 O objetivo é criar um mini game simples utilizando **HTML**, **CSS** e **JavaScript**, reforçando conceitos de manipulação do DOM, lógica de programação e estilização de elementos.
 
 ---
-![image](https://github.com/user-attachments/assets/62e14360-7e7f-4b9a-b38a-c753a85a95e7)
+![image](https://github.com/user-attachments/assets/b0363831-27fc-4e9b-9852-4cfa47020287)
+
 
 ## 🔧 Tecnologias Utilizadas
 
