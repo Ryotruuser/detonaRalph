@@ -13,6 +13,18 @@
         background-color: #000;
         color: #fff;
         border-bottom:2px solid #ffd700;
+        .menu-time-inner{
+            display: flex;
+            margin-top: 10px;
+            flex-direction: row;
+            gap: .5rem;
+            .extra-time{
+                opacity: 0;
+                transition: .7s ease-in-out;
+                color: #ffd700;
+                font-size: .9rem;
+            }
+        }
         .menu-score{
             .menu-score-inner{
                 display: flex;
@@ -60,12 +72,12 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 3rem;
+        gap: 1rem;
         justify-content: center;
         .result-text{
             color: rgb(55, 243, 55);
             text-align: center;
-            font-size: 2rem;
+            font-size: 1.4rem;
             margin-top: 4rem;
         }
         .play-again{
@@ -90,3 +102,22 @@
 
 
 
+.winner{
+    color: #FFD700;
+    text-shadow: 0 0 8px #1a5a99;
+}
+
+.elite{
+    color: #D72638;
+    text-shadow: 0 0 10px #780012;
+}
+
+.legendary{
+    color: #FFD700;
+    text-shadow: 0 0 10px #a77c00;
+}
+
+.godlike{
+    color: #8e44ad;
+    text-shadow: 0 0 10px #3d1c47;
+}
