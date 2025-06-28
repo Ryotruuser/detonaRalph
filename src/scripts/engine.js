@@ -204,11 +204,13 @@ function countDown(){
         }
         
     }else if(state.values.result >= state.values.godlike){
+        addListenerHitBox("off");
         playSound("GODLIKE");
         clearInterval(state.actions.countDownTimerId);
         clearInterval(state.actions.timerId);
         state.view.resultText.innerHTML = state.view.godlike + state.values.result;
         state.view.gameOverMenu.style.opacity = 1;
+        
     }
 
 }
@@ -237,17 +239,20 @@ function moveEnemy(){
     state.values.timerId = setInterval(randomSquare, state.values.gameVelocity)
 }
 
-function addListenerHitBox(){
-
+function addListenerHitBox(ligado = "on"){
+    
     state.view.squares.forEach((square)=>{
         square.addEventListener("mousedown", ()=>{
             extraPointOpacity(0);
             extraTimeOpacity(0);
-            if(square.id === state.values.hitPosition && state.values.currentTime > 0){
-                state.values.result++
+            if(square.id === state.values.hitPosition && state.values.currentTime > 0 && ligado === "on"){
+                state.values.result ++;
                 state.view.score.textContent = state.values.result;
                 state.values.hitPosition = null;
                 playSound("hit");
+            }else if(ligado === "off"){
+                state.values.result = state.values.godlike;
+                state.view.score.textContent = state.values.result;
             }
         })
     })
